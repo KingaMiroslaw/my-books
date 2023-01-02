@@ -1,8 +1,16 @@
+import { Route, Routes } from "react-router-dom";
+import BooksPage from "./pages/BooksPage/BooksPage";
+import FavoritePage from "./pages/FavoritePage/FavoritePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+
 function App() {
   return (
-    <div>
-      <h1>My Books</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/books" element={<BooksPage />} />
+      <Route path="/favorites" element={<FavoritePage />} />
+      <Route path="*" element={<LoginPage />} />
+    </Routes>
   );
 }
 
