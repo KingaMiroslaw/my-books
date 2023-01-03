@@ -1,0 +1,10 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 350px;
+  min-height: 450px;
+  background-color: rgba(41, 39, 39, 0.2);
+  box-shadow: 0 2px 15px black;
+}
