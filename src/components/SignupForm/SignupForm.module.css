@@ -1,0 +1,115 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(41, 39, 39, 0.2);
+  box-shadow: 0 2px 15px black;
+}
+
+.icon {
+  width: 10rem;
+  height: 10rem;
+  color: white;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.text-field {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-container {
+  border-bottom: 3px solid white;
+  padding-bottom: 0.25rem;
+  margin-top: 1rem;
+}
+
+.form-input {
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
+  padding-left: 0.25rem;
+}
+
+.form-input::placeholder {
+  color: white;
+}
+
+.input-icon {
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.error-msg {
+  font-weight: bold;
+  color: rgb(196, 2, 2);
+  text-align: left;
+  text-shadow: 2px 2px 2px #e6e4e4;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.show-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.show-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  color: white;
+}
+
+.submit-btn {
+  margin-top: 1.75rem;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  letter-spacing: 2px;
+  border-radius: 20px;
+  background-color: rgb(10, 136, 43);
+  border-style: none;
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.25rem;
+}
+
+.submit-btn:hover {
+  background-color: rgb(85, 191, 93);
+  transition: all 0.3s linear;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin: 1.5rem;
+}
+
+.info p {
+  color: white;
+  font-size: 1rem;
+}
+
+.login-btn {
+  border: none;
+  background-color: transparent;
+  color: rgb(10, 136, 43);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  color: rgb(85, 191, 93);
+  transition: all 0.3s linear;
+}
