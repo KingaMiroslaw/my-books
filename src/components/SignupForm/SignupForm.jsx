@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   BsFillPersonPlusFill,
@@ -9,6 +10,8 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import classes from "./SignupForm.module.css";
 
 function SignupForm() {
+  const [passwordShown, setPasswordShown] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -20,6 +23,10 @@ function SignupForm() {
   const onSubmit = (data) => {
     console.log(data);
     reset();
+  };
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
   };
 
   return (
@@ -67,7 +74,7 @@ function SignupForm() {
         <div className={classes["input-container"]}>
           <RiLockPasswordLine className={classes["input-icon"]} />
           <input
-            type="password"
+            type={passwordShown ? "text" : "password"}
             className={classes["form-input"]}
             placeholder="Confirm Password"
             {...register("confirmPassword", {
@@ -78,6 +85,13 @@ function SignupForm() {
               },
             })}
           />
+          <button
+            onClick={togglePassword}
+            type="button"
+            className={classes["show-btn"]}
+          >
+            <BsEyeSlash className={classes["show-icon"]} />
+          </button>
         </div>
         <div className={classes["error-msg"]}>
           {errors?.confirmPassword ? (
