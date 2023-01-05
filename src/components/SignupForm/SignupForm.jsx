@@ -9,7 +9,7 @@ import {
 import { RiLockPasswordLine } from "react-icons/ri";
 import classes from "./SignupForm.module.css";
 
-function SignupForm() {
+function SignupForm({ onShow }) {
   const [passwordShown, setPasswordShown] = useState(false);
 
   const {
@@ -104,7 +104,11 @@ function SignupForm() {
       </div>
       <div className={classes.info}>
         <p>Already a member?</p>
-        <button type="button" className={classes["login-btn"]}>
+        <button
+          type="button"
+          className={classes["login-btn"]}
+          onClick={() => onShow()}
+        >
           Log in
         </button>
       </div>

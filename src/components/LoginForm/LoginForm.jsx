@@ -6,7 +6,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 
-function LoginForm() {
+function LoginForm({ onShow }) {
   const [showError, setShowError] = useState(false);
 
   const { register, handleSubmit, reset } = useForm();
@@ -63,7 +63,11 @@ function LoginForm() {
       </div>
       <div className={classes.info}>
         <p>Not a member?</p>
-        <button type="button" className={classes["signup-btn"]}>
+        <button
+          type="button"
+          className={classes["signup-btn"]}
+          onClick={() => onShow()}
+        >
           Sign up
         </button>
       </div>
