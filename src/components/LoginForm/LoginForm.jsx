@@ -1,20 +1,35 @@
 import React from "react";
 import classes from "./LoginForm.module.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
 import { useForm } from "react-hook-form";
+import { useAuthUserMutation } from "../../api/auth-api/auth-api";
+import { setAuthUser } from "../../store/auth/auth-slice";
 
 function LoginForm({ onShow }) {
+  const dispatch = useDispatch();
+
   const [showError, setShowError] = useState(false);
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
+  const [authUser] = useAuthUserMutation();
 
   const onSubmit = (data) => {
-    console.log(data); // do usunięcia
     setShowError(false);
-    reset();
+
+    authUser({
+      email: data.email,
+      password: data.password,
+      returnSecureToken: true,
+    })
+      .unwrap()
+      .then((response) => {
+        dispatch(setAuthUser(response));
+      })
+      .catch((error) => {});
   };
 
   const onError = () => {
@@ -34,7 +49,7 @@ function LoginForm({ onShow }) {
             type="email"
             className={classes["form-input"]}
             placeholder="E-mail"
-            {...register("emailAddress", {
+            {...register("email", {
               required: true,
               pattern: {
                 value:
