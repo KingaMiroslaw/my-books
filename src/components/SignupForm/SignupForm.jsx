@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import {
   BsFillPersonPlusFill,
@@ -8,21 +9,34 @@ import {
 } from "react-icons/bs";
 import { RiLockPasswordLine } from "react-icons/ri";
 import classes from "./SignupForm.module.css";
+import { useSignUpUserMutation } from "../../api/auth-api/auth-api";
+import { setAuthUser } from "../../store/auth/auth-slice";
 
 function SignupForm({ onShow }) {
+  const dispatch = useDispatch();
+
   const [passwordShown, setPasswordShown] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     getValues,
   } = useForm();
 
+  const [signUpUser] = useSignUpUserMutation();
+
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    signUpUser({
+      email: data.email,
+      password: data.password,
+      returnSecureToken: true,
+    })
+      .unwrap()
+      .then((response) => {
+        console.log(response);
+        dispatch(setAuthUser(response));
+      })
   };
 
   const togglePassword = () => {
@@ -42,7 +56,7 @@ function SignupForm({ onShow }) {
             type="email"
             className={classes["form-input"]}
             placeholder="E-mail"
-            {...register("emailAddress", {
+            {...register("email", {
               required: "Required value",
               pattern: {
                 value:
@@ -63,7 +77,7 @@ function SignupForm({ onShow }) {
             placeholder="Create Password"
             {...register("password", {
               required: "Required value!",
-              minLength: { value: 5, message: "Minimal length is 5!" },
+              minLength: { value: 6, message: "Minimal length is 6!" },
               deps: ["confirmPassword"],
             })}
           />

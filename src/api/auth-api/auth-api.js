@@ -10,10 +10,17 @@ export const authApi = createApi({
       query: ({ email, password, returnSecureToken }) => ({
         url: "/accounts:signInWithPassword?key=AIzaSyBfk0WsVDuBu8jWI6h-OiBzVrJglx83bj0",
         method: "POST",
-        body: { email, password, returnSecureToken },
+        body: { email, password, returnSecureToken }
+      }),
+    }),
+    signUpUser: builder.mutation({
+      query: ({ email, password, returnSecureToken }) => ({
+        url: "/accounts:signUp?key=AIzaSyBfk0WsVDuBu8jWI6h-OiBzVrJglx83bj0",
+        method: "POST",
+        body: { email, password, returnSecureToken }
       }),
     }),
   }),
 });
 
-export const { useAuthUserMutation } = authApi;
+export const { useAuthUserMutation, useSignUpUserMutation } = authApi;
