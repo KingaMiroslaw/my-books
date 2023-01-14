@@ -73,7 +73,7 @@
 }
 
 .link-btn:hover {
-  background: rgb(175, 172, 172);
+  background: rgba(175, 172, 172, 0.541);
   color: rgb(74, 65, 65);
   padding-left: 1.5rem;
 }
