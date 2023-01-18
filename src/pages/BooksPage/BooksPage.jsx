@@ -6,6 +6,7 @@ import {
 import classes from "./BooksPage.module.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import { NavLink } from "react-router-dom";
 
 function BooksPage() {
   const [maxSliderItems, setMaxSliderItems] = useState(5);
@@ -49,8 +50,12 @@ function BooksPage() {
   return (
     <>
       <main className={classes["books-page"]}>
-        <section className={classes["books-category"]}>
-          <h2>books page</h2>
+        <section className={classes["books-categories"]}>
+          <NavLink className={classes["category-link"]}>fiction</NavLink>
+          <NavLink className={classes["category-link"]}>nonfiction</NavLink>
+          <NavLink className={classes["category-link"]}>health</NavLink>
+          <NavLink className={classes["category-link"]}>science</NavLink>
+          <NavLink className={classes["category-link"]}>business</NavLink>
         </section>
         <section className={classes["slider-container"]}>
           <Splide
