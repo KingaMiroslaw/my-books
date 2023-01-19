@@ -11,21 +11,8 @@ import { NavLink } from "react-router-dom";
 function BooksPage() {
   const [maxSliderItems, setMaxSliderItems] = useState(5);
 
-  const { fiction } = useGetFictionQuery(undefined, {
-    selectFromResult: ({ data, ...rest }) => ({
-      fiction: data ? data.results.books : [],
-      data,
-      ...rest,
-    }),
-  });
-
-  const { nonfiction } = useGetNonfictionQuery(undefined, {
-    selectFromResult: ({ data, ...rest }) => ({
-      nonfiction: data ? data.results.books : [],
-      data,
-      ...rest,
-    }),
-  });
+  const { data: fictionBooks = [] } = useGetFictionQuery();
+  const { data: nonfictionBooks = [] } = useGetNonfictionQuery();
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -48,63 +35,61 @@ function BooksPage() {
   }, []);
 
   return (
-    <>
-      <main className={classes["books-page"]}>
-        <section className={classes["books-categories"]}>
-          <NavLink className={classes["category-link"]}>fiction</NavLink>
-          <NavLink className={classes["category-link"]}>nonfiction</NavLink>
-          <NavLink className={classes["category-link"]}>health</NavLink>
-          <NavLink className={classes["category-link"]}>science</NavLink>
-          <NavLink className={classes["category-link"]}>business</NavLink>
-        </section>
-        <section className={classes["slider-container"]}>
-          <Splide
-            options={{
-              perPage: maxSliderItems,
-              arrows: true,
-              pagination: true,
-              perMove: 1,
-            }}
-          >
-            {fiction.map((book) => {
-              const { book_image, rank, title } = book;
+    <main className={classes["books-page"]}>
+      <nav className={classes["books-categories"]}>
+        <NavLink className={classes["category-link"]}>fiction</NavLink>
+        <NavLink className={classes["category-link"]}>nonfiction</NavLink>
+        <NavLink className={classes["category-link"]}>health</NavLink>
+        <NavLink className={classes["category-link"]}>science</NavLink>
+        <NavLink className={classes["category-link"]}>business</NavLink>
+      </nav>
+      <section className={classes["slider-container"]}>
+        <Splide
+          options={{
+            perPage: maxSliderItems,
+            arrows: true,
+            pagination: true,
+            perMove: 1,
+          }}
+        >
+          {fictionBooks.map((book) => {
+            const { book_image, rank, title } = book;
 
-              return (
-                <SplideSlide key={rank}>
-                  <img
-                    src={book_image}
-                    alt={title}
-                    className={classes["book-image"]}
-                  />
-                </SplideSlide>
-              );
-            })}
-          </Splide>
-          <Splide
-            options={{
-              perPage: maxSliderItems,
-              arrows: true,
-              pagination: true,
-              perMove: 1,
-            }}
-          >
-            {nonfiction.map((book) => {
-              const { book_image, rank, title } = book;
+            return (
+              <SplideSlide key={rank}>
+                <img
+                  src={book_image}
+                  alt={title}
+                  className={classes["book-image"]}
+                />
+              </SplideSlide>
+            );
+          })}
+        </Splide>
+        <Splide
+          options={{
+            perPage: maxSliderItems,
+            arrows: true,
+            pagination: true,
+            perMove: 1,
+          }}
+        >
+          {nonfictionBooks.map((book) => {
+            const { book_image, rank, title } = book;
 
-              return (
-                <SplideSlide key={rank}>
-                  <img
-                    src={book_image}
-                    alt={title}
-                    className={classes["book-image"]}
-                  />
-                </SplideSlide>
-              );
-            })}
-          </Splide>
-        </section>
-      </main>
-    </>
+            return (
+              <SplideSlide key={rank}>
+                <img
+                  src={book_image}
+                  alt={title}
+                  className={classes["book-image"]}
+                />
+              </SplideSlide>
+            );
+          })}
+        </Splide>
+      </section>
+    </main>
   );
 }
 

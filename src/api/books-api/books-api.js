@@ -9,10 +9,16 @@ export const booksApi = createApi({
     getFiction: builder.query({
       query: () =>
         `/lists/current/hardcover-fiction.json?api-key=97gbGLZdsTWt4QPs9XZOXgw9kpAELRh2`,
+      transformResponse: (response) => {
+        return response.results.books;
+      },
     }),
     getNonfiction: builder.query({
       query: () =>
         `/lists/current/hardcover-nonfiction.json?api-key=97gbGLZdsTWt4QPs9XZOXgw9kpAELRh2`,
+      transformResponse: (response) => {
+        return response.results.books;
+      },
     }),
   }),
 });
