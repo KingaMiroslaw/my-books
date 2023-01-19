@@ -6,21 +6,27 @@ export const booksApi = createApi({
     baseUrl: "https://api.nytimes.com/svc/books/v3",
   }),
   endpoints: (builder) => ({
-    getFiction: builder.query({
+    getFictionBooks: builder.query({
       query: () =>
         `/lists/current/hardcover-fiction.json?api-key=97gbGLZdsTWt4QPs9XZOXgw9kpAELRh2`,
       transformResponse: (response) => {
-        return response.results.books;
+        const filteredResponse = response.results.books.filter(
+          (book) => book.book_image !== null
+        );
+        return filteredResponse;
       },
     }),
-    getNonfiction: builder.query({
+    getNonfictionBooks: builder.query({
       query: () =>
         `/lists/current/hardcover-nonfiction.json?api-key=97gbGLZdsTWt4QPs9XZOXgw9kpAELRh2`,
       transformResponse: (response) => {
-        return response.results.books;
+        const filteredResponse = response.results.books.filter(
+          (book) => book.book_image !== null
+        );
+        return filteredResponse;
       },
     }),
   }),
 });
 
-export const { useGetFictionQuery, useGetNonfictionQuery } = booksApi;
+export const { useGetFictionBooksQuery, useGetNonfictionBooksQuery } = booksApi;

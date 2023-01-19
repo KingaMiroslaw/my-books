@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
-  useGetFictionQuery,
-  useGetNonfictionQuery,
+  useGetFictionBooksQuery,
+  useGetNonfictionBooksQuery,
 } from "../../api/books-api/books-api";
 import classes from "./BooksPage.module.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -11,8 +11,8 @@ import { NavLink } from "react-router-dom";
 function BooksPage() {
   const [maxSliderItems, setMaxSliderItems] = useState(5);
 
-  const { data: fictionBooks = [] } = useGetFictionQuery();
-  const { data: nonfictionBooks = [] } = useGetNonfictionQuery();
+  const { data: fictionBooks = [] } = useGetFictionBooksQuery();
+  const { data: nonfictionBooks = [] } = useGetNonfictionBooksQuery();
 
   useEffect(() => {
     const handleWindowResize = () => {
