@@ -31,6 +31,7 @@ function BooksPage() {
     };
 
     window.addEventListener("resize", handleWindowResize);
+    handleWindowResize();
 
     return () => {
       window.removeEventListener("resize", handleWindowResize);
