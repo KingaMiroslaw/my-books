@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import {
   useGetFictionBooksQuery,
   useGetNonfictionBooksQuery,
@@ -37,12 +38,23 @@ function BooksPage() {
   return (
     <main className={classes["books-page"]}>
       <nav className={classes["books-categories"]}>
-        <NavLink className={classes["category-link"]}>fiction</NavLink>
-        <NavLink className={classes["category-link"]}>nonfiction</NavLink>
-        <NavLink className={classes["category-link"]}>health</NavLink>
-        <NavLink className={classes["category-link"]}>science</NavLink>
-        <NavLink className={classes["category-link"]}>business</NavLink>
+        <NavLink to="hardcover-fiction" className={classes["category-link"]}>
+          fiction
+        </NavLink>
+        <NavLink to="hardcover-nonfiction" className={classes["category-link"]}>
+          nonfiction
+        </NavLink>
+        <NavLink to="health" className={classes["category-link"]}>
+          health
+        </NavLink>
+        <NavLink to="science" className={classes["category-link"]}>
+          science
+        </NavLink>
+        <NavLink to="business-books" className={classes["category-link"]}>
+          business
+        </NavLink>
       </nav>
+      <Outlet />
       <section className={classes["slider-container"]}>
         <Splide
           options={{
