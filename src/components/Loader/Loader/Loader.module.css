@@ -1,6 +1,8 @@
 .loader-container {
   display: flex;
   justify-content: center;
-  margin-top: 20rem;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10rem;
 }
-

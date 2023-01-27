@@ -6,12 +6,15 @@ import {
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import classes from "./BooksWelcomePage.module.css";
+import Loader from "../../components/Loader/Loader/Loader";
 
 function BooksWelcomePage() {
   const [maxSliderItems, setMaxSliderItems] = useState(5);
 
-  const { data: fictionBooks = [] } = useGetFictionBooksQuery();
-  const { data: nonfictionBooks = [] } = useGetNonfictionBooksQuery();
+  const { data: fictionBooks = [], isFetching: isFictionBooksFetching } =
+    useGetFictionBooksQuery();
+  const { data: nonfictionBooks = [], isFetching: isNonfictionBooksFetching } =
+    useGetNonfictionBooksQuery();
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -27,60 +30,68 @@ function BooksWelcomePage() {
     };
 
     window.addEventListener("resize", handleWindowResize);
+    handleWindowResize();
 
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
   return (
-    <main>
-      <section className={classes["slider-container"]}>
-        <Splide
-          options={{
-            perPage: maxSliderItems,
-            arrows: true,
-            pagination: true,
-            perMove: 1,
-          }}
-        >
-          {fictionBooks.map((book) => {
-            const { book_image, rank, title } = book;
+    <>
+      {isFictionBooksFetching && isNonfictionBooksFetching ? (
+        <Loader />
+      ) : (
+        <main>
+          <section className={classes["slider-container"]}>
+            <Splide
+              options={{
+                perPage: maxSliderItems,
+                arrows: true,
+                pagination: true,
+                perMove: 1,
+              }}
+            >
+              {fictionBooks.map((book) => {
+                const { book_image, rank, title } = book;
 
-            return (
-              <SplideSlide key={rank}>
-                <img
-                  src={book_image}
-                  alt={title}
-                  className={classes["book-image"]}
-                />
-              </SplideSlide>
-            );
-          })}
-        </Splide>
-        <Splide
-          options={{
-            perPage: maxSliderItems,
-            arrows: true,
-            pagination: true,
-            perMove: 1,
-          }}
-        >
-          {nonfictionBooks.map((book) => {
-            const { book_image, rank, title } = book;
+                return (
+                  <SplideSlide key={rank}>
+                    <img
+                      src={book_image}
+                      alt={title}
+                      className={classes["book-image"]}
+                    />
+                  </SplideSlide>
+                );
+              })}
+            </Splide>
+            <Splide
+              options={{
+                perPage: maxSliderItems,
+                arrows: true,
+                pagination: true,
+                perMove: 1,
+              }}
+            >
+              {nonfictionBooks.map((book) => {
+                const { book_image, rank, title } = book;
 
-            return (
-              <SplideSlide key={rank}>
-                <img
-                  src={book_image}
-                  alt={title}
-                  className={classes["book-image"]}
-                />
-              </SplideSlide>
-            );
-          })}
-        </Splide>
-      </section>
-    </main>
+                return (
+                  <SplideSlide key={rank}>
+                    <img
+                      src={book_image}
+                      alt={title}
+                      className={classes["book-image"]}
+                    />
+                  </SplideSlide>
+                );
+              })}
+            </Splide>
+          </section>
+        </main>
+      )}
+    </>
   );
 }
 

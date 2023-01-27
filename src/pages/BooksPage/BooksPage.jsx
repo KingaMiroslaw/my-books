@@ -22,7 +22,7 @@ function BooksPage() {
           business
         </NavLink>
       </nav>
-      <section>
+      <section className={classes["outlet-container"]}>
         <Outlet />
       </section>
     </main>
