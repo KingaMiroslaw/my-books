@@ -42,7 +42,7 @@ function BooksWelcomePage() {
       {isFictionBooksFetching && isNonfictionBooksFetching ? (
         <Loader />
       ) : (
-        <main>
+        <div>
           <section className={classes["slider-container"]}>
             <Splide
               options={{
@@ -89,7 +89,7 @@ function BooksWelcomePage() {
               })}
             </Splide>
           </section>
-        </main>
+        </div>
       )}
     </>
   );

@@ -13,7 +13,7 @@ function BooksCategoryPage() {
       {isFetching ? (
         <Loader />
       ) : (
-        <main className={classes["books-container"]}>
+        <div className={classes["books-container"]}>
           {booksByCategory.map((book) => {
             const { book_image, rank, title } = book;
             return (
@@ -26,7 +26,7 @@ function BooksCategoryPage() {
               </div>
             );
           })}
-        </main>
+        </div>
       )}
     </>
   );
