@@ -24,7 +24,7 @@ function HomePage() {
         </Link>
       </div>
       <div>
-        <img src={img} alt="books lover" />
+        <img src={img} alt="books lover" className={classes.image} />
       </div>
     </main>
   );

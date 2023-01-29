@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .book-image {

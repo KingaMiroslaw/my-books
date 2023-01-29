@@ -26,7 +26,21 @@ export const booksApi = createApi({
         return filteredResponse;
       },
     }),
+    getBooksByCategory: builder.query({
+      query: (categoryName) =>
+        `/lists/current/${categoryName}.json?api-key=97gbGLZdsTWt4QPs9XZOXgw9kpAELRh2`,
+      transformResponse: (response) => {
+        const filteredResponse = response.results.books.filter(
+          (book) => book.book_image !== null
+        );
+        return filteredResponse;
+      },
+    }),
   }),
 });
 
-export const { useGetFictionBooksQuery, useGetNonfictionBooksQuery } = booksApi;
+export const {
+  useGetFictionBooksQuery,
+  useGetNonfictionBooksQuery,
+  useGetBooksByCategoryQuery,
+} = booksApi;
