@@ -5,6 +5,8 @@ import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Layout from "./Layout/Layout/Layout";
+import BooksCategoryPage from "./pages/BooksCategoryPage/BooksCategoryPage";
+import BooksWelcomePage from "./pages/BooksWelcomePage/BooksWelcomePage";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -13,8 +15,11 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/books" element={<BooksPage />} />
-        <Route path="/favorites" element={<FavoritePage />} />
+        <Route path="books" element={<BooksPage />}>
+          <Route index element={<BooksWelcomePage/>} />
+          <Route path=":categoryName" element={<BooksCategoryPage />} />
+        </Route>
+        <Route path="favorites" element={<FavoritePage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Layout>

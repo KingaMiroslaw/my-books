@@ -1,105 +1,31 @@
-import React, { useEffect, useState } from "react";
-import {
-  useGetFictionBooksQuery,
-  useGetNonfictionBooksQuery,
-} from "../../api/books-api/books-api";
+import { Outlet } from "react-router-dom";
 import classes from "./BooksPage.module.css";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/splide.min.css";
 import { NavLink } from "react-router-dom";
-import Loader from "../../components/Loader/Loader/Loader";
 
 function BooksPage() {
-  const [maxSliderItems, setMaxSliderItems] = useState(5);
-
-  const { data: fictionBooks = [], isFetching: isFictionBooksFetching } =
-    useGetFictionBooksQuery();
-  const { data: nonfictionBooks = [], isFetching: isNonfictionBooksFetching } =
-    useGetNonfictionBooksQuery();
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      if (window.innerWidth <= 550) {
-        setMaxSliderItems(2);
-      } else if (window.innerWidth <= 800) {
-        setMaxSliderItems(3);
-      } else if (window.innerWidth <= 1000) {
-        setMaxSliderItems(4);
-      } else if (window.innerWidth >= 1400) {
-        setMaxSliderItems(5);
-      }
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-    handleWindowResize();
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
-
   return (
-    <>
-      {isFictionBooksFetching && isNonfictionBooksFetching ? (
-        <Loader />
-      ) : (
-        <main className={classes["books-page"]}>
-          <nav className={classes["books-categories"]}>
-            <NavLink className={classes["category-link"]}>fiction</NavLink>
-            <NavLink className={classes["category-link"]}>nonfiction</NavLink>
-            <NavLink className={classes["category-link"]}>health</NavLink>
-            <NavLink className={classes["category-link"]}>science</NavLink>
-            <NavLink className={classes["category-link"]}>business</NavLink>
-          </nav>
-          <section className={classes["slider-container"]}>
-            <Splide
-              options={{
-                perPage: maxSliderItems,
-                arrows: true,
-                pagination: true,
-                perMove: 1,
-              }}
-            >
-              {fictionBooks.map((book) => {
-                const { book_image, rank, title } = book;
-
-                return (
-                  <SplideSlide key={rank}>
-                    <img
-                      src={book_image}
-                      alt={title}
-                      className={classes["book-image"]}
-                    />
-                  </SplideSlide>
-                );
-              })}
-            </Splide>
-            <Splide
-              options={{
-                perPage: maxSliderItems,
-                arrows: true,
-                pagination: true,
-                perMove: 1,
-              }}
-            >
-              {nonfictionBooks.map((book) => {
-                const { book_image, rank, title } = book;
-
-                return (
-                  <SplideSlide key={rank}>
-                    <img
-                      src={book_image}
-                      alt={title}
-                      className={classes["book-image"]}
-                    />
-                  </SplideSlide>
-                );
-              })}
-            </Splide>
-          </section>
-        </main>
-      )}
-    </>
+    <main className={classes["books-page"]}>
+      <nav className={classes["books-categories"]}>
+        <NavLink to="hardcover-fiction" className={classes["category-link"]}>
+          fiction
+        </NavLink>
+        <NavLink to="hardcover-nonfiction" className={classes["category-link"]}>
+          nonfiction
+        </NavLink>
+        <NavLink to="health" className={classes["category-link"]}>
+          health
+        </NavLink>
+        <NavLink to="science" className={classes["category-link"]}>
+          science
+        </NavLink>
+        <NavLink to="business-books" className={classes["category-link"]}>
+          business
+        </NavLink>
+      </nav>
+      <section className={classes["outlet-container"]}>
+        <Outlet />
+      </section>
+    </main>
   );
 }
 

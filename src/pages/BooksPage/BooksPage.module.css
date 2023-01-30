@@ -5,16 +5,6 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.slider-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .books-categories {
@@ -25,14 +15,6 @@
   justify-content: center;
   gap: 0.5rem;
   padding-bottom: 1rem;
-}
-
-.book-image {
-  padding: 0.5rem;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .category-link {
@@ -59,6 +41,9 @@
 }
 
 @media screen and (min-width: 650px) {
+  .books-page {
+    height: calc(100vh - 80px);
+  }
   .books-categories {
     display: flex;
     gap: 1rem;
@@ -66,15 +51,16 @@
   .category-link {
     font-size: 1.25rem;
   }
+  .outlet-container {
+    flex: 1;
+    overflow-y: auto;
+  }
 }
 
 @media screen and (min-width: 1250px) {
   .books-page {
     padding: 5rem 2rem;
-    display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
   }
 
   .books-categories {

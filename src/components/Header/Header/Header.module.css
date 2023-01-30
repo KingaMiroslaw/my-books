@@ -84,7 +84,7 @@
 
 @media screen and (min-width: 650px) {
   .header-container {
-    padding: 0.25rem 0.5rem;
+    height: 80px;
   }
 
   .header-centered {

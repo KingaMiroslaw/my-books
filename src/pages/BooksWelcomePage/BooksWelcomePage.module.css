@@ -1,0 +1,13 @@
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-image {
+  padding: 0.5rem;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
