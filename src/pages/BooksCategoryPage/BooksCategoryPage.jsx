@@ -16,8 +16,7 @@ function BooksCategoryPage() {
       ) : (
         <div className={classes["books-container"]}>
           {booksByCategory.map((book) => {
-            const { rank } = book;
-            return <BookItem book={book} key={rank} />;
+            return <BookItem book={book} key={book.rank} />;
           })}
         </div>
       )}
