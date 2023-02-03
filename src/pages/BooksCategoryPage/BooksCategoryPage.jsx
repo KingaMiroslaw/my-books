@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useGetBooksByCategoryQuery } from "../../api/books-api/books-api";
 import classes from "./BooksCategoryPage.module.css";
 import Loader from "../../components/Loader/Loader/Loader";
+import BookItem from "../../components/BookItem/BookItem";
 
 function BooksCategoryPage() {
   const { categoryName } = useParams();
@@ -15,16 +16,7 @@ function BooksCategoryPage() {
       ) : (
         <div className={classes["books-container"]}>
           {booksByCategory.map((book) => {
-            const { book_image, rank, title } = book;
-            return (
-              <div key={rank}>
-                <img
-                  src={book_image}
-                  alt={title}
-                  className={classes["book-image"]}
-                />
-              </div>
-            );
+            return <BookItem book={book} key={book.rank} />;
           })}
         </div>
       )}
