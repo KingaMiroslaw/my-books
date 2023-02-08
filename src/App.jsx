@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate} from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import BooksPage from "./pages/BooksPage/BooksPage";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
@@ -11,10 +11,11 @@ import BookDetailsPage from "./pages/BookDetailsPage/BookDetailsPage";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const location = useLocation();
 
   return isAuthenticated ? (
     <Layout>
-      <Routes >
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
         <Route path="books" element={<BooksPage />}>
           <Route index element={<BooksWelcomePage />} />
