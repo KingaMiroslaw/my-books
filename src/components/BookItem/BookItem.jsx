@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function BookItem({ book }) {
-  const { book_image, title, author, rank, publisher, description } = book;
+  const { book_image, title, author, rank, publisher, description, buy_links } = book;
   const [bookDetails, setBookDetails] = useState({
     image: book_image,
     title: title,
     author: author,
     publisher: publisher,
     description: description,
+    buy: buy_links,
   });
 
   return (
