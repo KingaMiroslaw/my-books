@@ -1,0 +1,150 @@
+.book-details {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.25rem 0.25rem;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.book-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 100%;
+}
+
+.return-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.return-message {
+  visibility: hidden;
+  text-transform: capitalize;
+  color: rgb(175, 172, 172);
+}
+
+.return-icon:hover .return-message {
+  visibility: visible;
+}
+
+.icon {
+  height: 2rem;
+  width: 2rem;
+  color: rgb(74, 72, 72);
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: rgb(175, 172, 172);
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  color: rgb(74, 72, 72);
+  text-transform: capitalize;
+}
+
+.book-information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.book-info {
+  border: 1px solid rgb(175, 172, 172);
+  background-color: rgb(175, 172, 172);
+  color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+
+.book-description {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  color: rgb(74, 72, 72);
+  max-width: 500px;
+  font-style: italic;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.shop-btn {
+  padding: 0.5rem;
+  background-color: rgb(175, 172, 172);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.shop-btn:hover {
+  background-color: rgba(175, 172, 172, 0.678);
+}
+
+.shop-link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.shop-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+@media screen and (min-width: 550px) {
+  .book-details {
+    padding: 2rem;
+  }
+
+  .book-description {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    padding: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .book-information {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .book-details {
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+  }
+
+  .book-image {
+    width: 328px;
+    height: 500px;
+  }
+}
