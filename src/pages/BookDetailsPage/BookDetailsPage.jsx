@@ -8,9 +8,9 @@ function BookDetailsPage() {
   const book = location.state?.book;
   const { image, title, author, publisher, description, buy } = book;
   const navigate = useNavigate();
-  const buyUrl = buy[0].url;
+  const amazonUrl = buy.find((buyItem) => buyItem.name === "Amazon");
 
-  const titleChange = (title) => {
+  const changeTitleToCapitalize = (title) => {
     return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
   };
 
@@ -21,7 +21,7 @@ function BookDetailsPage() {
       <div>
         <img src={image} alt={title} className={classes["book-image"]} />
       </div>
-      <div className={classes["book-container"]}>
+      <div>
         <div className={classes["return-icon"]}>
           <p className={classes["return-message"]}>go back</p>
           <BsArrowReturnLeft
@@ -36,7 +36,7 @@ function BookDetailsPage() {
           </div>
           <div className={classes["book-information"]}>
             <p className={classes["book-info"]}>Title </p>
-            <p>{titleChange(title)}</p>
+            <p>{changeTitleToCapitalize(title)}</p>
           </div>
           <div className={classes["book-information"]}>
             <p className={classes["book-info"]}>Publisher </p>
@@ -46,19 +46,21 @@ function BookDetailsPage() {
         {description ? (
           <div className={classes["book-description"]}>{description}</div>
         ) : null}
-        <div className={classes["btn-container"]}>
-          <button className={classes["shop-btn"]} type="button">
-            <a
-              href={buyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={classes["shop-link"]}
-            >
-              <HiOutlineShoppingCart className={classes["shop-icon"]} />
-              shop
-            </a>
-          </button>
-        </div>
+        {amazonUrl ? (
+          <div className={classes["btn-container"]}>
+            <button className={classes["shop-btn"]} type="button">
+              <a
+                href={amazonUrl.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes["shop-link"]}
+              >
+                <HiOutlineShoppingCart className={classes["shop-icon"]} />
+                shop
+              </a>
+            </button>
+          </div>
+        ) : null}
       </div>
     </main>
   );
