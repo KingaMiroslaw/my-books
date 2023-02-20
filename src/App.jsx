@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import BooksPage from "./pages/BooksPage/BooksPage";
-import FavoritePage from "./pages/FavoritePage/FavoritePage";
+import MyFavoritesPage from "./pages/MyFavoritesPage/MyFavoritesPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Layout from "./Layout/Layout/Layout";
@@ -21,7 +21,7 @@ function App() {
           <Route index element={<BooksWelcomePage />} />
           <Route path=":categoryName" element={<BooksCategoryPage />} />
         </Route>
-        <Route path="favorites" element={<FavoritePage />} />
+        <Route path="my-favorites" element={<MyFavoritesPage />} />
         <Route path="book-details/:title" element={<BookDetailsPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
