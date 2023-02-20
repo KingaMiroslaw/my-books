@@ -4,8 +4,9 @@ import { Tooltip } from "react-tooltip";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function BookItem({ book }) {
-  const { book_image, title, author, rank, publisher, description, buy_links } = book;
+function BookItem({ book, onAddBookToFavorite }) {
+  const { book_image, title, author, rank, publisher, description, buy_links } =
+    book;
   const [bookDetails, setBookDetails] = useState({
     image: book_image,
     title: title,
@@ -37,7 +38,7 @@ function BookItem({ book }) {
           <div id={`favorite-books-${rank}`}>
             <AiOutlineHeart
               className={classes["fav-icon"]}
-              onClick={() => console.log("add to my favorite")}
+              onClick={() => onAddBookToFavorite({ book })}
             />
           </div>
         </div>
