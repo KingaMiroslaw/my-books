@@ -7,6 +7,26 @@ export const favoritesBooksApi = createApi({
     baseUrl: "https://my-books-a5049-default-rtdb.firebaseio.com",
   }),
   endpoints: (builder) => ({
+    getFavoriteBookItem: builder.query({
+      query: ({ email }) => `/favorites-books/${transformEmail(email)}.json`,
+      transformResponse: (response) => {
+        const array = [];
+
+        if (response !== null) {
+          for (const key in response) {
+            array.push({
+              id: key,
+              author: response[key].author,
+              title: response[key].title,
+              publisher: response[key].publisher,
+              description: response[key].description,
+              picture: response[key].book_image,
+            });
+          }
+        }
+        return array;
+      },
+    }),
     addFavoriteBookItem: builder.mutation({
       query: ({ email, book }) => ({
         url: `/favorites-books/${transformEmail(email)}.json`,
@@ -17,4 +37,5 @@ export const favoritesBooksApi = createApi({
   }),
 });
 
-export const { useAddFavoriteBookItemMutation } = favoritesBooksApi;
+export const { useGetFavoriteBookItemQuery, useAddFavoriteBookItemMutation } =
+  favoritesBooksApi;
