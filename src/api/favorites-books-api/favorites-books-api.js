@@ -37,5 +37,8 @@ export const favoritesBooksApi = createApi({
   }),
 });
 
-export const { useGetFavoriteBookItemQuery, useAddFavoriteBookItemMutation } =
-  favoritesBooksApi;
+export const {
+  useGetFavoriteBookItemQuery,
+  useAddFavoriteBookItemMutation,
+  useLazyGetFavoriteBookItemQuery,
+} = favoritesBooksApi;

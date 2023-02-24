@@ -2,6 +2,7 @@ import { useLocation, useNavigate, Navigate } from "react-router-dom";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import classes from "./BookDetailsPage.module.css";
+import { changeTitleToCapitalize } from "../../utils/utils";
 
 function BookDetailsPage() {
   const location = useLocation();
@@ -9,10 +10,6 @@ function BookDetailsPage() {
   const { image, title, author, publisher, description, buy } = book;
   const navigate = useNavigate();
   const amazonUrl = buy.find((buyItem) => buyItem.name === "Amazon");
-
-  const changeTitleToCapitalize = (title) => {
-    return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
-  };
 
   if (!book) return <Navigate to={-1} />;
 
