@@ -34,8 +34,17 @@ export const favoritesBooksApi = createApi({
         body: book,
       }),
     }),
+    deleteFavoriteBookItem: builder.mutation({
+      query: ({ email, id }) => ({
+        url: `/favorites-books/${transformEmail(email)}/${id}.json`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { useGetFavoriteBookItemQuery, useAddFavoriteBookItemMutation } =
-  favoritesBooksApi;
+export const {
+  useGetFavoriteBookItemQuery,
+  useAddFavoriteBookItemMutation,
+  useDeleteFavoriteBookItemMutation,
+} = favoritesBooksApi;

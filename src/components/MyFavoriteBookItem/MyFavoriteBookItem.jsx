@@ -2,8 +2,9 @@ import classes from "./MyFavoriteBookItem.module.css";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { changeTitleToCapitalize } from "../../utils/utils";
 
-function MyFavoriteBookItem({ book }) {
-  const { author, title, publisher, description, picture } = book;
+function MyFavoriteBookItem({ book, deleteBook }) {
+  const { author, title, publisher, description, picture, id } = book;
+
   return (
     <div className={classes["favorite-book-container"]}>
       <div className={classes["book-container"]}>
@@ -18,10 +19,10 @@ function MyFavoriteBookItem({ book }) {
           </div>
 
           <div className={classes["delete-item"]}>
-            <p className={classes["delete-message"]}>go back</p>
+            <p className={classes["delete-message"]}>delete book</p>
             <RiDeleteBinLine
               className={classes["delete-icon"]}
-              onClick={() => console.log("delete book")}
+              onClick={() => deleteBook({ id })}
             />
           </div>
         </div>

@@ -58,6 +58,13 @@
   visibility: hidden;
   text-transform: capitalize;
   color: rgb(175, 172, 172);
+  margin-bottom: 0.5rem;
+}
+
+.delete-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .delete-item:hover .delete-message {
