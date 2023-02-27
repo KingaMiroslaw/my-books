@@ -1,10 +1,10 @@
 .favorite-book-container {
-  border: 2px solid rgb(255, 255, 255);
+  border: 0.1rem solid rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   color: rgb(74, 72, 72);
@@ -17,8 +17,8 @@
 }
 
 .book-image {
-  width: 165px;
-  height: 250px;
+  width: 10.5rem;
+  height: 15.5rem;
 }
 
 .info-container {
@@ -35,10 +35,10 @@
 .description-container {
   background-color: rgb(175, 172, 172);
   color: rgb(255, 255, 255);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-style: italic;
   margin-top: 1.5rem;
 }
@@ -48,7 +48,7 @@
   height: 3rem;
   color: rgb(255, 255, 255);
   background-color: rgb(175, 172, 172);
-  border: 1px solid rgb(175, 172, 172);
+  border: 0.05rem solid rgb(175, 172, 172);
   border-radius: 50%;
   padding: 0.5rem;
   cursor: pointer;
