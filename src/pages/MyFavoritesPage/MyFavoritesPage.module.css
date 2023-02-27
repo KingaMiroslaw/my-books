@@ -1,0 +1,17 @@
+.favorites-page {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-message {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: rgb(74, 72, 72);
+  text-align: center;
+  padding-top: 4rem;
+}

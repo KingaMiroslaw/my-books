@@ -7,7 +7,7 @@ function HomePage() {
   return (
     <main className={classes["home-page"]}>
       <div className={classes["links-container"]}>
-        <Link className={classes.link} to="/favorites">
+        <Link className={classes.link} to="/my-favorites">
           <h4>My Favorites</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab numquam

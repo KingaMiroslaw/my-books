@@ -58,7 +58,7 @@ function Header() {
               </li>
               <li>
                 <NavLink
-                  to="favorites"
+                  to="my-favorites"
                   style={({ isActive }) =>
                     isActive
                       ? {
@@ -119,7 +119,7 @@ function Header() {
             </li>
             <li>
               <NavLink
-                to="favorites"
+                to="my-favorites"
                 style={({ isActive }) =>
                   isActive
                     ? {
