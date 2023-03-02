@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../store/auth/auth-slice";
@@ -9,6 +9,7 @@ import { MdOutlineLogout } from "react-icons/md";
 function Header() {
   const dispatch = useDispatch();
   const [showLinks, setShowLinks] = useState(false);
+  const ref = useRef();
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -24,8 +25,22 @@ function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickAway = (event) => {
+      if (ref && !ref.current.contains(event.target)) {
+        setShowLinks(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickAway);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickAway);
+    };
+  }, []);
+
   return (
-    <header className={classes["header-container"]}>
+    <header className={classes["header-container"]} ref={ref}>
       <div className={classes["header-centered"]}>
         <div className={classes["small-header"]}>
           <h1 className={classes.logo}>MyBooks</h1>
@@ -42,6 +57,7 @@ function Header() {
             <ul className={classes.links}>
               <li>
                 <NavLink
+                  onClick={() => setShowLinks(false)}
                   to="/"
                   style={({ isActive }) =>
                     isActive
@@ -58,6 +74,7 @@ function Header() {
               </li>
               <li>
                 <NavLink
+                  onClick={() => setShowLinks(false)}
                   to="my-favorites"
                   style={({ isActive }) =>
                     isActive
@@ -74,6 +91,7 @@ function Header() {
               </li>
               <li>
                 <NavLink
+                  onClick={() => setShowLinks(false)}
                   to="books"
                   style={({ isActive }) =>
                     isActive
