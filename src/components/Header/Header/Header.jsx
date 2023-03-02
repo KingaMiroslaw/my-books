@@ -9,7 +9,7 @@ import { MdOutlineLogout } from "react-icons/md";
 function Header() {
   const dispatch = useDispatch();
   const [showLinks, setShowLinks] = useState(false);
-  const clickAwayRef = useRef();
+  const ref = useRef();
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -27,7 +27,7 @@ function Header() {
 
   useEffect(() => {
     const handleClickAway = (event) => {
-      if (clickAwayRef && !clickAwayRef.current.contains(event.target)) {
+      if (ref && !ref.current.contains(event.target)) {
         setShowLinks(false);
       }
     };
@@ -40,7 +40,7 @@ function Header() {
   }, []);
 
   return (
-    <header className={classes["header-container"]} ref={clickAwayRef}>
+    <header className={classes["header-container"]} ref={ref}>
       <div className={classes["header-centered"]}>
         <div className={classes["small-header"]}>
           <h1 className={classes.logo}>MyBooks</h1>
