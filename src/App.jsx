@@ -8,10 +8,12 @@ import Layout from "./Layout/Layout/Layout";
 import BooksCategoryPage from "./pages/BooksCategoryPage/BooksCategoryPage";
 import BooksWelcomePage from "./pages/BooksWelcomePage/BooksWelcomePage";
 import BookDetailsPage from "./pages/BookDetailsPage/BookDetailsPage";
+import useAutoLogin from "./hooks/useAutoLogin";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const location = useLocation();
+  useAutoLogin();
 
   return isAuthenticated ? (
     <Layout>

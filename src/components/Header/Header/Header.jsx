@@ -39,6 +39,11 @@ function Header() {
     };
   }, []);
 
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    dispatch(logout());
+  };
+
   return (
     <header className={classes["header-container"]} ref={ref}>
       <div className={classes["header-centered"]}>
@@ -108,7 +113,7 @@ function Header() {
               </li>
               <button
                 className={classes["link-btn"]}
-                onClick={() => dispatch(logout())}
+                onClick={() => logoutHandler()}
               >
                 Logout
               </button>
@@ -176,7 +181,7 @@ function Header() {
         <div className={classes.logout}>
           <button
             className={classes["logout-btn"]}
-            onClick={() => dispatch(logout())}
+            onClick={() => logoutHandler()}
           >
             Logout <MdOutlineLogout className={classes["logout-icon"]} />
           </button>
