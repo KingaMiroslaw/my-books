@@ -27,6 +27,7 @@ function LoginForm({ onShow }) {
     })
       .unwrap()
       .then((response) => {
+        localStorage.setItem("token", response.idToken);
         dispatch(setAuthUser(response));
       })
       .catch((error) => {});
