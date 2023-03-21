@@ -2,6 +2,7 @@
   "name": "my-books",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kingamiroslaw.github.io/my-books",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@splidejs/react-splide": "^0.7.12",
