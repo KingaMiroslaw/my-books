@@ -7,7 +7,7 @@ import { useState } from "react";
 function BookItem({ book, onAddBookToFavorite, isAlreadyAdded }) {
   const { book_image, title, author, rank, publisher, description, buy_links } =
     book;
-  const [bookDetails, setBookDetails] = useState({
+  const [bookDetails] = useState({
     image: book_image,
     title: title,
     author: author,
