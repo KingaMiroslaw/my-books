@@ -9,18 +9,13 @@ function HomePage() {
       <div className={classes["links-container"]}>
         <Link className={classes.link} to="/my-favorites">
           <h4>My Favorites</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab numquam
-            enim deleniti quibusdam ad tempore nulla modi soluta nemo iste.
-          </p>
+          <p>Already have your book favorites?</p>
+          <p>Come in and remind yourself of your favorite books.</p>
         </Link>
         <Link className={classes.link} to="/books">
           <h4>Books</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab numquam
-            enim deleniti quibusdam ad tempore nulla modi soluta nemo iste.
-            Lorem ipsum dolor sit amet.
-          </p>
+          <p> Want to discover new books? </p>
+          <p>Choose from five categories and find a new interesting one.</p>
         </Link>
       </div>
       <div>

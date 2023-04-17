@@ -70,10 +70,6 @@
 }
 
 @media screen and (min-width: 1500px) {
-  .home-page {
-    max-width: 50%;
-  }
-
   .links-container {
     display: flex;
     flex-direction: row;
