@@ -4,7 +4,7 @@ import BooksPage from "./pages/BooksPage/BooksPage";
 import MyFavoritesPage from "./pages/MyFavoritesPage/MyFavoritesPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
-import Layout from "./Layout/Layout/Layout";
+import Layout from "./Layout/Layout";
 import BooksCategoryPage from "./pages/BooksCategoryPage/BooksCategoryPage";
 import BooksWelcomePage from "./pages/BooksWelcomePage/BooksWelcomePage";
 import BookDetailsPage from "./pages/BookDetailsPage/BookDetailsPage";

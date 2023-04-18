@@ -5,7 +5,7 @@ import {
   useDeleteFavoriteBookItemMutation,
 } from "../../api/favorites-books-api/favorites-books-api";
 import { useSelector } from "react-redux";
-import Loader from "../../components/Loader/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 function MyFavoritesPage() {
   const { userInfo } = useSelector((store) => store.auth);

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useGetBooksByCategoryQuery } from "../../api/books-api/books-api";
 import classes from "./BooksCategoryPage.module.css";
-import Loader from "../../components/Loader/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import BookItem from "../../components/BookItem/BookItem";
 import {
   useAddFavoriteBookItemMutation,

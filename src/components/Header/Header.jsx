@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logout } from "../../../store/auth/auth-slice";
+import { logout } from "../../store/auth/auth-slice";
 import classes from "./Header.module.css";
 import { FaBars } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";

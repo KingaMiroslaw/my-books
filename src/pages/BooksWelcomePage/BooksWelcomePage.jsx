@@ -6,7 +6,7 @@ import {
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import classes from "./BooksWelcomePage.module.css";
-import Loader from "../../components/Loader/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 function BooksWelcomePage() {
   const [maxSliderItems, setMaxSliderItems] = useState(5);
