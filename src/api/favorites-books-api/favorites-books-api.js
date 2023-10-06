@@ -4,7 +4,7 @@ import { transformEmail } from "../../utils/utils";
 export const favoritesBooksApi = createApi({
   reducerPath: "favoritesBooksApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://my-books-a5049-default-rtdb.firebaseio.com",
+    baseUrl: process.env.REACT_APP_FIREBASE_API_URL,
   }),
   endpoints: (builder) => ({
     getFavoriteBookItem: builder.query({

@@ -3,12 +3,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const booksApi = createApi({
   reducerPath: "booksApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.nytimes.com/svc/books/v3",
+    baseUrl: process.env.REACT_APP_BOOKS_API_URL,
   }),
   endpoints: (builder) => ({
     getFictionBooks: builder.query({
       query: () =>
-        `/lists/current/hardcover-fiction.json?api-key=97gbGLZdsTWt4QPs9XZOXgw9kpAELRh2`,
+        `/lists/current/hardcover-fiction.json?api-key=${process.env.REACT_APP_BOOKS_API_KEY}`,
       transformResponse: (response) => {
         const filteredResponse = response.results.books.filter(
           (book) => book.book_image !== null
@@ -18,7 +18,7 @@ export const booksApi = createApi({
     }),
     getNonfictionBooks: builder.query({
       query: () =>
-        `/lists/current/hardcover-nonfiction.json?api-key=97gbGLZdsTWt4QPs9XZOXgw9kpAELRh2`,
+        `/lists/current/hardcover-nonfiction.json?api-key=${process.env.REACT_APP_BOOKS_API_KEY}`,
       transformResponse: (response) => {
         const filteredResponse = response.results.books.filter(
           (book) => book.book_image !== null
@@ -28,7 +28,7 @@ export const booksApi = createApi({
     }),
     getBooksByCategory: builder.query({
       query: (categoryName) =>
-        `/lists/current/${categoryName}.json?api-key=97gbGLZdsTWt4QPs9XZOXgw9kpAELRh2`,
+        `/lists/current/${categoryName}.json?api-key=${process.env.REACT_APP_BOOKS_API_KEY}`,
       transformResponse: (response) => {
         const filteredResponse = response.results.books.filter(
           (book) => book.book_image !== null
