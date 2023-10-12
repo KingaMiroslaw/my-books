@@ -97,5 +97,5 @@ npm run build
 
 # Demo
 
-[See DEMO](https://kingamiroslaw.github.io/my-books/)
+[See DEMO](https://my-books-eosin.vercel.app/)
 
